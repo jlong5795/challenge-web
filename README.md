@@ -12,8 +12,8 @@ You will build a real-time React.JS chat room that allows users to log in and se
 
 - Use React.JS, Redux, and Socket.IO to build a real-time web chat app.
 - Use Redux to store the application's state and process any client-side network requests.
-- Links shared include extracted metadata (page title, image, description, or whatever you want).
-- In the client, show a list of all users who are in the room.
+- Links shared in the chat show an extracted metadata preview (page title, image, description/summary, or whatever you want).
+- In the client, show a list of all users who are logged in to the room.
 - The login can be email only for simplicity.
 - Feel free to use any additional third-party styling or component libraries.
 
@@ -24,10 +24,10 @@ You will build a real-time React.JS chat room that allows users to log in and se
 
 ## What We're Looking For
 
-- Modular use of Redux
+- Modular use of Redux that contains the app's business logic (decoupled from UI components)
 - Either use React presentational component/container [structure](https://medium.com/@dan_abramov/smart-and-dumb-components-7ca2f9a7c7d0) or [React SFCs](https://www.jstwister.com/post/react-stateless-functional-components-best-practices/) and Hooks.
-- You separate business logic from the app's UI components.
-- Asthetic look-and-feel of the app UI.  We will have design resources available, but there will be times when you'll need to fill in the gaps without outside help.
+- UI is broken up into reusable components
+- Asthetic look-and-feel of the app.  We will have design resources available, but there will be times when you'll need to fill in the gaps without outside help.
 
 ## Getting Started
 
