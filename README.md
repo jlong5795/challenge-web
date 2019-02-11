@@ -25,7 +25,7 @@ You will build a real-time React.JS chat room that allows users to log in and se
 ## What We're Looking For
 
 - Modular use of Redux that contains the app's business logic (decoupled from UI components).
-- Break up the UI into reusable components that follow the React presentational component/container [React presentational component/container](https://medium.com/@dan_abramov/smart-and-dumb-components-7ca2f9a7c7d0) structure or Function Components with Hooks.
+- Break up the UI into reusable components that follow either the [React presentational component/container](https://medium.com/@dan_abramov/smart-and-dumb-components-7ca2f9a7c7d0) structure or Functional Components with Hooks.
 - Consistent asthetic and look-and-feel of the app.  We will have design resources available, but there will be times when you'll need to fill in the gaps without outside help.
 
 ## Getting Started
