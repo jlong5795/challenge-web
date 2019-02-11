@@ -2,9 +2,9 @@ import React, { Component } from 'react';
 import './app.css';
 import ReactImage from './react.png';
 
-import io from 'socket.io-client';
+import socketIO from 'socket.io-client';
 
-const socket = io('http://localhost:3000');
+const socket = socketIO('http://localhost:8080');
 
 export default class App extends Component {
   state = { username: null };

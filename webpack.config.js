@@ -33,7 +33,7 @@ module.exports = {
     port: 3000,
     open: true,
     proxy: {
-      '/': 'http://localhost:8080'
+      '*': 'http://[::1]:8080'
     }
   },
   plugins: [
