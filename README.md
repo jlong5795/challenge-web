@@ -2,7 +2,7 @@
 
 This project is intended to touch a few key technologies that TruckMap uses for its web applications to help us understand how you think about trade-offs between time, usefulness, and simplicity in a realistic setting.
 
-We are respectful of your time.  If we’ve requested you do this challenge we’ll pay **$200 for any submission** in good faith effort, regardless if you’re ultimately hired.
+We are respectful of your time. If we’ve requested you do this challenge we’ll pay **$200 for any submission** in good faith effort, regardless if you’re ultimately hired.
 
 ## Project Description
 
@@ -14,13 +14,11 @@ You will build a real-time React.JS chat room that allows users to log in and se
 - Use Redux to store the application's state and process any client-side network requests.
 - Links shared in the chat show an extracted metadata preview (page title, image, description/summary, or whatever you want).
 - In the client, show a list of all users who are logged in to the room.
-- The login can be email only for simplicity.
+- Allow users to tag other users in their messages - you can decide how this looks/behaves.
+
+## Notes
+- The login can be email-only for simplicity.
 - Feel free to use any additional third-party styling or component libraries.
-
-## Bonus Points (Not Required!)
-
-- Use the new [React Hooks API](https://medium.com/@dan_abramov/making-sense-of-react-hooks-fdbde8803889) instead of React class components.
-- Allow users to tag/mention other users in their messages.
 
 ## What We're Looking For
 
