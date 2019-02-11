@@ -6,7 +6,7 @@ We are respectful of your time.  If weâ€™ve requested you do this challenge weâ€
 
 ## Project Description
 
-You will build a real-time React.JS chat room that allows users to log in and send eachother messages and links.  Links shared in the chat will include a preview of the link inline with the message (think iMessage or Android Messages).
+You will build a real-time React.JS chat room that allows users to log in and send each other messages and links.  Links shared in the chat will include a preview of the link inline with the message (think iMessage or Android Messages).
 
 ## Requirements
 
