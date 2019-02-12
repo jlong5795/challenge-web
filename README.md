@@ -6,7 +6,7 @@ We are respectful of your time. If we’ve requested you do this challenge we’
 
 ## Project Description
 
-You will build a real-time React.JS chat room that allows users to log in and send each other messages and links.  Links shared in the chat will include a preview of the link inline with the message (think iMessage or Android Messages).
+You will build a real-time React.JS chat room that allows users to log in and send each other messages and links.  Links shared in the chat should include a preview of the link inline with the message (think Slack, iMessage, or Android Messages).
 
 ## Requirements
 
@@ -14,7 +14,7 @@ You will build a real-time React.JS chat room that allows users to log in and se
 - Use Redux to store the application's state and process any client-side network requests.
 - Links shared in the chat show an extracted metadata preview (page title, image, description/summary, or whatever you want).
 - In the client, show a list of all users who are logged in to the room.
-- Allow users to tag other users in their messages - you can decide how this looks/behaves.
+- Allow users to tag/mention other users in their messages - you can decide how this looks and behaves.
 
 ## Notes
 - The auth login can be email-only for simplicity.
