@@ -1,4 +1,4 @@
-# TruckMap Web Engineering Challenge
+# TruckMap Web JS Engineering Challenge
 
 This project is intended to touch a few key technologies that TruckMap uses for its web applications to help us understand how you think about trade-offs between time, usefulness, and simplicity in a realistic setting.
 
