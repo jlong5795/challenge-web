@@ -18,7 +18,7 @@ You will build a real-time React.JS chat room that allows users to log in and se
 
 ## Notes
 - The auth login can be email-only for simplicity.
-- We've included a basic redux boilerplate to get started, but feel free to reorganize this if you prefer another structure.
+- We've included a basic hooks boilerplate to get started, but feel free to reorganize this if you prefer another structure.
 - Feel free to use any additional third-party styling or component libraries (tailwind.css is a plus!).
 
 ## What We're Looking For
