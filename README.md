@@ -10,16 +10,16 @@ You will build a real-time React.JS chat room that allows users to log in and se
 
 ## Requirements
 
-- Use React.JS, Redux, and Socket.IO to build a real-time web chat app.
-- Use Redux to store the application's state and process any client-side network requests.
-- Links shared in the chat show an extracted metadata preview (page title, image, description/summary, or whatever you want).  While it would be fine to use pre-existing components for the preview in a real setting, please implement the metadata fetching yourself on the server (not ajax in the client) and be mindful of the async experience of this for rendering in the client.
+- Use React.JS and Socket.IO to build a real-time web chat app.
+- Use Redux, Recoil, or React Hooks to store the application's state and process any client-side network requests.
+- Links shared in the chat show an extracted metadata preview (page title, image, description/summary, or whatever you want).  While it would be fine to use pre-existing components for the preview in a real setting, please implement the metadata fetching yourself on the server (not ajax in the client) and be mindful of the async experience of this for rendering in the client while that info is loading.
 - In the client, show a list of all users who are logged in to the room.
 - Allow users to tag/mention other users in their messages - you can decide how this looks and behaves.
 
 ## Notes
 - The auth login can be email-only for simplicity.
 - We've included a basic redux boilerplate to get started, but feel free to reorganize this if you prefer another structure.
-- Feel free to use any additional third-party styling or component libraries.
+- Feel free to use any additional third-party styling or component libraries (tailwind.css is a plus!).
 
 ## What We're Looking For
 
@@ -34,5 +34,5 @@ We recommend getting started by downloading this package (don't fork, please!) a
 ## Submitting
 
 - Replace this `README.md` with any instructions, a few screenshots, assumptions you made, and a few ideas for features you might add if the app was taken any further.
-- Zip and email your repository to us. You can remove `node_modules` to reduce size.
+- Zip and email your repository to us. You can remove `node_modules` before zipping to reduce size.
 - We will provide constructive and timely feedback on your submission with a clear direction around next steps.  Thank you for your time.
