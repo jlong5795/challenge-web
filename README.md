@@ -15,10 +15,10 @@ You will build a real-time React.JS chat room that allows users to log in and se
 - Use Redux, Recoil, or React Hooks to store the application's state and process any client-side network requests.
 - URL links shared in the chat should show an extracted metadata preview (page title, image, description/summary, etc. like Slack).  While it would be fine to use pre-existing components for the preview in a real setting, please implement the metadata fetching yourself on the server (not ajax in the client) and be mindful of the async experience of this for rendering in the client while that info is loading for other users.
 - In the client, show a list of all users who are currently logged in to the room.
-- Allow users to tag/mention other users in their messages - you can decide how this looks and behaves.
 
 ## Notes
 - The auth login can be email-only for simplicity.
+- Optionally, allow users to tag/mention other users in their messages.
 - Messages, users, or any other data can be stored in memory (persistence isn't required).
 
 ## What We're Looking For
