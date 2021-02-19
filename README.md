@@ -10,7 +10,7 @@ You will build a real-time React.JS chat room that allows users to log in and se
 
 ## Requirements
 
-- Create a new [NextJS](https://nextjs.org) application configured to use [tailwind.css](https://tailwindcss.com) for UI styles.
+- Create a new [NextJS](https://nextjs.org) application configured to use [tailwind.css](https://tailwindcss.com) for UI styles and TypeScript.
 - Use socket.io to add the real-time chat functionality.
 - Use Redux, Recoil, or React Hooks to store the application's state and process any client-side network requests.
 - URL links shared in the chat should show an extracted metadata preview (page title, image, description/summary, etc. like Slack).  While it would be fine to use pre-existing components for the preview in a real setting, please implement the metadata fetching yourself on the server (not ajax in the client) and be mindful of the async experience of this for rendering in the client while that info is loading for other users.
