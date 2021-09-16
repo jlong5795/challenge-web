@@ -15,9 +15,9 @@ export const userSlice = createSlice({
     name: 'user',
     initialState,
     reducers: {
-        login: (state) => {
-            state.displayName = 'Jason'
-            state.email = 'jlong5795@gmail.com'
+        login: (state, action: PayloadAction<UserState>) => {
+            // request to backend?
+            state = action.payload
         },
         logout: (state) => {
             state = initialState
