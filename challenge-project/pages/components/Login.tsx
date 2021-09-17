@@ -1,17 +1,22 @@
-import e from "cors";
 import { useState } from "react";
+import { useDispatch } from 'react-redux';
+import { useRouter } from 'next/router';
+import { login } from '../../store/slices/userSlice';
 
 const Login = () => {
   const [form, setForm] = useState({ displayName: "", email: "" });
+  const dispatch = useDispatch();
+  const router = useRouter();
 
-  const handleChange = (event) => {
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setForm({ ...form, [event.target.name]: event.target.value });
   };
 
-  const handleSubmit = (event) => {
+  const handleSubmit = (event: React.SyntheticEvent) => {
     event.preventDefault();
     // send request to API
-    console.log(form);
+    dispatch(login(form))
+    router.push('/room')
   };
   return (
     <form onSubmit={handleSubmit}>

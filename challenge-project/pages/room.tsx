@@ -1,20 +1,19 @@
 import { useState, useEffect, useRef } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { connect, disconnect, receive } from '../store/slices/conversationSlice';
+import { RootState } from '../store/store';
 import { io } from "socket.io-client";
-
-interface IMsg {
-  user: string;
-  msg: string;
-}
 
 // placeholder for current user
 const user = "User_" + String(new Date().getTime()).substr(-3);
 
 const Room: React.FC = () => {
   const inputRef = useRef(null);
+  const dispatch = useDispatch();
 
-  const [connected, setConnected] = useState(false);
+  // migrate to reducers
+  const { chat, connected } = useSelector((state: RootState) => state.conversations)
 
-  const [chat, setChat] = useState<IMsg[]>([]);
   const [msg, setMsg] = useState<string>("");
 
   useEffect((): any => {
@@ -27,21 +26,20 @@ const Room: React.FC = () => {
 
     // log socket connection
     socket.on("connect", () => {
-      console.log("Socket connected", socket.id);
-      setConnected(true);
+      dispatch(connect(socket.id));
     });
 
     //updates chat on message dispatch
     socket.on("message", (message: IMsg) => {
-      chat.push(message);
-      setChat([...chat]);
+      dispatch(receive(message))
     });
 
     //server disconnect on unmount
-    if (socket) return () => socket.disconnect();
+    if (socket) return () => dispatch(disconnect(socket))
   }, []);
 
   const sendMessage = async () => {
+    console.log('this is a test')
     if (msg) {
       const message: IMsg = {
         user,
