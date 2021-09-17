@@ -1,11 +1,11 @@
 import { useState } from "react";
-import { useDispatch } from 'react-redux';
+import { useAppDispatch } from "../../store/reduxHooks"
 import { useRouter } from 'next/router';
 import { login } from '../../store/slices/userSlice';
 
 const Login = () => {
   const [form, setForm] = useState({ displayName: "", email: "" });
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
   const router = useRouter();
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {

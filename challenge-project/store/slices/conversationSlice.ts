@@ -1,6 +1,7 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import type { RootState } from '../store';
 import { io } from "socket.io-client";
+import axios from "axios";
 
 interface ConversationState {
     connected: boolean
@@ -27,8 +28,17 @@ export const conversationSlice = createSlice({
             state.socketId = ''
             state.connected = false
         },
-        send: (state) => {
-            state
+        send: (state, action) => {
+            if (action.payload.msg) {
+                const message = {
+                    user: action.payload.user,
+                    msg: action.payload.msg
+                }
+
+                axios.post('/api/chat', message).then().catch(error => {
+                    throw new error
+                })
+            }
         },
         receive: (state, action) => {
             state.chat.push(action.payload)
