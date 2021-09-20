@@ -6,6 +6,9 @@ type ChatRoom = {
 type IMsg = {
     user: string;
     msg: string;
+    finalData?: {
+        [key:string]: any | undefined;
+    }
 }
 interface User {
     displayName: string | null;

@@ -4,17 +4,17 @@ import {
   connect,
   disconnect,
   receive,
-  send,
 } from "../store/slices/conversationSlice";
 import { io } from "socket.io-client";
 import { sendIMessage } from "../utils/messages";
+import ChatMessage from "./components/ChatMessage";
 
 const Room: React.FC = () => {
   const inputRef = useRef(null);
   const dispatch = useAppDispatch();
-  
+
   // migrate to reducers
-  const { displayName } = useAppSelector((state) => state.user)
+  let { displayName } = useAppSelector((state) => state.user);
   const { chat, connected } = useAppSelector((state) => state.conversations);
 
   const [msg, setMsg] = useState("");
@@ -40,10 +40,6 @@ const Room: React.FC = () => {
     if (socket) return () => dispatch(disconnect(socket));
   }, []);
 
-  useEffect(() => {
-    console.log(displayName, "Display Name")
-  }, [displayName])
-
   const sendMessage = async () => {
     if (displayName && msg) {
       sendIMessage({ user: displayName, msg });
@@ -57,9 +53,11 @@ const Room: React.FC = () => {
         <div>
           {chat.length ? (
             chat.map((chat, i) => (
-              <div key={"msg_" + i}>
-                <span>{chat.user === displayName ? "Me" : chat.user}</span>: {chat.msg}
-              </div>
+              <ChatMessage
+                chat={chat}
+                displayName={displayName}
+                i={i}
+              />
             ))
           ) : (
             <div>No chat messages</div>

@@ -17,6 +17,9 @@ export default async (req: NextApiRequest, res: NextApiResponseServerIO) => {
         const io = new ServerIO(httpServer, {
             path: '/api/socketio'
         })
+        io.on('connect', () => {
+            
+        })
         res.socket.server.io = io;
     }
     res.end();
