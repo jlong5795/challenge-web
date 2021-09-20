@@ -3,8 +3,8 @@ import axios from 'axios';
 import type { RootState } from '../store';
 
 const initialState: User = {
-    displayName: null,
-    email: null,
+    displayName: '',
+    email: '',
     loggedIn: false,
     userId: ''
 }
@@ -14,19 +14,10 @@ export const userSlice = createSlice({
     initialState,
     reducers: {
         login: (state, action: PayloadAction<User>) => {
-            // send email to api
-            axios.post("/api/auth/login", {email: action.payload.email}).then(response => {
-                state = {
-                    displayName: action.payload.displayName,
-                    email: action.payload.email,
-                    userId: response.data.id,
-                    loggedIn: true
-                }
-                console.log(state)
-              }).catch(error => {
-                  state = initialState
-                  throw new error
-              })
+                    state.displayName = action.payload.displayName
+                    state.email = action.payload.email
+                    state.userId = action.payload.userId
+                    state.loggedIn = true
         },
         logout: (state) => {
             state = initialState

@@ -7,21 +7,19 @@ import {
   send,
 } from "../store/slices/conversationSlice";
 import { io } from "socket.io-client";
-
-// placeholder for current user
-const user = "User_" + String(new Date().getTime()).substr(-3);
+import { sendIMessage } from "../utils/messages";
 
 const Room: React.FC = () => {
   const inputRef = useRef(null);
   const dispatch = useAppDispatch();
-
+  
   // migrate to reducers
+  const { displayName } = useAppSelector((state) => state.user)
   const { chat, connected } = useAppSelector((state) => state.conversations);
 
   const [msg, setMsg] = useState("");
 
   useEffect((): any => {
-    // the body of this should be pulled into helper file
     const url = process.env.NEXT_BASE_URL as string | "";
     // connect to socket server
     const socket = io(url, {
@@ -42,9 +40,15 @@ const Room: React.FC = () => {
     if (socket) return () => dispatch(disconnect(socket));
   }, []);
 
+  useEffect(() => {
+    console.log(displayName, "Display Name")
+  }, [displayName])
+
   const sendMessage = async () => {
-    dispatch(send({ user, msg }));
-    setMsg("");
+    if (displayName && msg) {
+      sendIMessage({ user: displayName, msg });
+      setMsg("");
+    }
   };
 
   return (
@@ -54,7 +58,7 @@ const Room: React.FC = () => {
           {chat.length ? (
             chat.map((chat, i) => (
               <div key={"msg_" + i}>
-                <span>{chat.user === user ? "Me" : chat.user}</span>: {chat.msg}
+                <span>{chat.user === displayName ? "Me" : chat.user}</span>: {chat.msg}
               </div>
             ))
           ) : (

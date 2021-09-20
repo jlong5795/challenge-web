@@ -31,11 +31,11 @@ export const conversationSlice = createSlice({
         send: (state, action) => {
             if (action.payload.msg) {
                 const message = {
-                    user: action.payload.user,
+                    user: action.payload.displayName,
                     msg: action.payload.msg
                 }
 
-                axios.post('/api/chat', message).then().catch(error => {
+                axios.post('/api/chat', message).then(response => console.log(message)).catch(error => {
                     throw new error
                 })
             }
