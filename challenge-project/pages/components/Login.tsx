@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useAppDispatch } from "../../store/reduxHooks"
 import { useRouter } from 'next/router';
-import { logUserIn } from "../../utils/userAuth";
+import { logUserIn } from "../../utils/users";
 import { login } from '../../store/slices/userSlice';
 
 const Login = () => {

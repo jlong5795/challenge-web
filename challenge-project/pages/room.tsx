@@ -5,9 +5,12 @@ import {
   disconnect,
   receive,
 } from "../store/slices/conversationSlice";
+import { logout } from '../store/slices/userSlice'
 import { io } from "socket.io-client";
 import { sendIMessage } from "../utils/messages";
 import ChatMessage from "./components/ChatMessage";
+import router from "next/router";
+import CurrentUsers from "./components/CurrentUsers";
 
 const Room: React.FC = () => {
   const inputRef = useRef(null);
@@ -29,7 +32,12 @@ const Room: React.FC = () => {
     // log socket connection
     socket.on("connect", () => {
       dispatch(connect(socket.id));
+      socket.emit("displayName", displayName, socket.id)
     });
+
+    socket.on("userList", (users => {
+      console.log(users)
+    }))
 
     //updates chat on message dispatch
     socket.on("message", (message: IMsg) => {
@@ -46,6 +54,11 @@ const Room: React.FC = () => {
       setMsg("");
     }
   };
+
+  const logOut = () => {
+    dispatch(logout())
+    router.push('/')
+  }
 
   return (
     <div>
@@ -90,6 +103,8 @@ const Room: React.FC = () => {
           </div>
         </div>
       </div>
+      <button onClick={logOut}>Log Out</button>
+      <CurrentUsers />
     </div>
   );
 };

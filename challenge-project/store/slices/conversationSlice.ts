@@ -1,18 +1,20 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import type { RootState } from '../store';
-import { io } from "socket.io-client";
+import { getUsers } from '../../utils/users';
 import axios from "axios";
 
 interface ConversationState {
     connected: boolean
     chat: IMsg[]
-    socketId: string
+    socketId: string,
+    users: any[]
 }
 
 const initialState: ConversationState = {
     chat: [],
     connected: false,
-    socketId: ''
+    socketId: '',
+    users: []
 }
 
 export const conversationSlice = createSlice({
@@ -22,11 +24,15 @@ export const conversationSlice = createSlice({
         connect: (state, action) => {
             state.connected = true
             state.socketId = action.payload
+            state.users = getUsers()
+            console.log(state.users)
         },
         disconnect: (state, action ) => {
             action.payload.disconnect()
             state.socketId = ''
             state.connected = false
+            state.users = getUsers()
+            console.log(state.users)
         },
         send: (state, action) => {
             if (action.payload.msg) {
