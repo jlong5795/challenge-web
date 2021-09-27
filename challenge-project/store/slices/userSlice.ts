@@ -1,5 +1,4 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import axios from 'axios';
 import type { RootState } from '../store';
 
 const initialState: User = {
@@ -16,7 +15,6 @@ export const userSlice = createSlice({
         login: (state, action: PayloadAction<User>) => {
                     state.displayName = action.payload.displayName
                     state.email = action.payload.email
-                    state.userId = action.payload.userId
                     state.loggedIn = true
         },
         logout: (state) => {
@@ -24,11 +22,14 @@ export const userSlice = createSlice({
         },
         updateDisplayName: (state, action: PayloadAction<string>) => {
             state.displayName = action.payload
+        },
+        updateId: (state, action: PayloadAction<string>) => {
+            state.userId = action.payload
         }
     }
 })
 
-export const { login, logout, updateDisplayName } = userSlice.actions
+export const { login, logout, updateDisplayName, updateId } = userSlice.actions
 
 export const selectUser = (state: RootState) => state.user
 

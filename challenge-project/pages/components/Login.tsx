@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { useAppDispatch } from "../../store/reduxHooks"
 import { useRouter } from 'next/router';
-import { logUserIn } from "../../utils/users";
 import { login } from '../../store/slices/userSlice';
 
 const Login = () => {
@@ -16,8 +15,7 @@ const Login = () => {
   const handleSubmit = async (event: React.SyntheticEvent) => {
     event.preventDefault();
     // send request to API
-    const userId = await logUserIn(form)
-    dispatch(login({...form, userId}))
+    dispatch(login(form))
     router.push('/room')
   };
   return (

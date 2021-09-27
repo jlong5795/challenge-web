@@ -5,15 +5,6 @@ interface LogInUser {
     email: string;
 }
 
-export const logUserIn = async (user: LogInUser) => {
-    try {
-        const response = await axios.post('/api/auth/login', user)
-        return response.data.id
-    } catch (e) {
-        console.log(e)
-    }
-}
-
 export const getUsers = () => {
     let users: any[] = []
     axios.get('/api/getUsers').then(response => {
